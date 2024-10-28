@@ -274,25 +274,29 @@ def main():
             print("ERROR TEXT: " + error_text)
             print()
             if (error_code == 14): # error_msg == "Captcha needed"
-                captcha_encountered = True
-                captcha_sid = response_body["captcha_sid"]
-                captcha_img = response_body["captcha_img"]
-                print("CAPTCHA ENCOUNTERED!")
-                print("CAPTCHA SID: " + captcha_sid)
-                print("CAPTCHA IMG: " + captcha_img)
-                print()
-                request = requests.get(captcha_img)
-                content = request.content
-                with open("captcha_invite.jpeg", mode='wb') as local_file:
-                    local_file.write(content)
-                captcha_fp = open('captcha_invite.jpeg', 'rb')
-                client = AnticaptchaClient(CONFIG["ANTI_CAPTCHA_API_KEY"])
-                task = ImageToTextTask(captcha_fp)
-                job = client.createTask(task)
-                job.join()
-                captcha_key = job.get_captcha_text()
-                print("CAPTCHA TEXT: " + captcha_key)
-                print()
+                try:
+                    captcha_encountered = True
+                    captcha_sid = response_body["captcha_sid"]
+                    captcha_img = response_body["captcha_img"]
+                    print("CAPTCHA ENCOUNTERED!")
+                    print("CAPTCHA SID: " + captcha_sid)
+                    print("CAPTCHA IMG: " + captcha_img)
+                    print()
+                    request = requests.get(captcha_img)
+                    content = request.content
+                    with open("captcha_invite.jpeg", mode='wb') as local_file:
+                        local_file.write(content)
+                    captcha_fp = open('captcha_invite.jpeg', 'rb')
+                    client = AnticaptchaClient(CONFIG["ANTI_CAPTCHA_API_KEY"])
+                    task = ImageToTextTask(captcha_fp)
+                    job = client.createTask(task)
+                    job.join()
+                    captcha_key = job.get_captcha_text()
+                    print("CAPTCHA TEXT: " + captcha_key)
+                    print()
+                except:
+                    captcha_encountered = False
+                    continue
             if (error_code == 103): # error_msg == "Out of limits: invites limit"
                 print("OUT OF INVITES LIMITS FOR THIS/CURRENT/TODAY SESSION")
                 print()

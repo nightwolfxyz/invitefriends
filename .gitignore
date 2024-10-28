@@ -1,0 +1,8 @@
+invitefriends.conf
+#captcha_invite.jpeg
+#friends_to_invite.json
+#index_invite.json
+#total_invitations_invite.json
+*.jpeg
+*.json
+invite2.py

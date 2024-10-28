@@ -246,8 +246,6 @@ def LoadState():
         with open("total_invitations_friends.json", "r") as read_file:
             total_invitations = json.load(read_file)
 
-    return
-
 def SaveState():
     global processed
     global total_invitations
@@ -262,8 +260,6 @@ def SaveState():
 
     with open("total_invitations_friends.json", "w") as write_file:
         json.dump(total_invitations, write_file)
-
-    return
 
 def main():
     global CONFIG
