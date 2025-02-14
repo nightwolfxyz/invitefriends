@@ -1,0 +1,7 @@
+/access_tokens
+/backup
+/conf
+invitefriends.conf
+*.bak
+*.jpeg
+*.json
