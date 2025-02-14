@@ -48,7 +48,7 @@ https://oauth.vk.com/authorize?client_id=51785735&redirect_uri=https://oauth.vk.
 - Предоставить приложению InviteFriendStandalone необходимые запрашиваемые разрешения - обычно происходит автоматически с авторизацией
 
 - В результате произойдет перенаправление на страницу https://oauth.vk.com/blank.html, а строка браузера примет вид:
-https://oauth.vk.com/blank.html#access_token=<ВАШ ТОКЕН>&expires_in=0&user_id=85102398
+https://oauth.vk.com/blank.html#access_token=ВАШ_ТОКЕН&expires_in=0&user_id=85102398
 
 Ключ доступа (access_token) находится после параметра "access_token=..." и до начала следующего параметра, то есть до следующего знака амперсанда ("&"). 
 
@@ -58,7 +58,7 @@ https://oauth.vk.com/blank.html#access_token=<ВАШ ТОКЕН>&expires_in=0&us
 
 - Аналогично user access token (см. выше), только первым шагом в адресную строку браузера необходимо вставить строку:
 
-https://oauth.vk.com/authorize?client_id=51785735&group_ids=<ID ВАШЕГО СООБЩЕСТВА>0&display=mobile&redirect_uri=https://oauth.vk.com/blank.html&scope=manage,messages&response_type=token&v=5.131
+https://oauth.vk.com/authorize?client_id=51785735&group_ids=ID_ВАШЕГО_СООБЩЕСТВА&display=mobile&redirect_uri=https://oauth.vk.com/blank.html&scope=manage,messages&response_type=token&v=5.131
 
 После параметра "group_ids=..." необходимо указать числовые идентификаторы сообществ (находятся в разделе Управления сообществом -> Основная информация -> Адрес -> Номер сообщества и имеют вид club1234567, указывать только цифры без слова "club"), в которые вы собираетесь приглашать подписчиков.
 
